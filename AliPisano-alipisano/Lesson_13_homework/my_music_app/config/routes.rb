@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
 
-  # get "/" => 'artists#index'
+  #establish a custom route, get request where about url is being triggered by outside client
+  get 'about', to: "static_pages#about", as: "about" 
+  
+  get 'test', to: "static_pages#test", as: "test" 
 
-  get "/artists" => 'artists#index'
+  #establish a root path
+  root 'static_pages#home'
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
