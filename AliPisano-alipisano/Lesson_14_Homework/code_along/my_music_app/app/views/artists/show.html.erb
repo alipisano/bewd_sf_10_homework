@@ -1,0 +1,40 @@
+<p>
+  <strong>Title:</strong>
+  <%= @artist.name %>
+</p>
+ 
+<p>
+  <strong>Bio:</strong>
+  <%= @artist.description %>
+</p>
+ 
+<h2>Reviews</h2>
+<% @artist.reviews.each do |review| %>
+  <p>
+    <strong>reviewer:</strong>
+    <%= review.reviewer %>
+  </p>
+ 
+  <p>
+    <strong>review:</strong>
+    <%= review.body %>
+  </p>
+<% end %>
+ 
+<h2>Add a review:</h2>
+<%= form_for([@artist, @artist.reviews.build]) do |f| %>
+  <p>
+    <%= f.label :reviewer %><br>
+    <%= f.text_field :reviewer %>
+  </p>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+ 
+<%= link_to 'Edit', edit_artist_path(@artist) %> |
+<%= link_to 'Back', artists_path %>
