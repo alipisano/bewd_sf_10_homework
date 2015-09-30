@@ -1,29 +1,31 @@
 class MessagesController < ApplicationController
-	def index
+  
+  def index
     @messages = Message.all
   end
 
   def show
-    @message = Message.find(params[:id])
-  	end
-
-	def new
-  	end
+    @message = Message.find(params[:id]) 
+    #use to find the message we're interested in; pass in params to get the ID from the request
+  end
+ 
+  def new
+    @message = Message.new
+  end
 
 	def create
-  		@message = Message.new(message_params)
+    @message = Message.new(message_params)
  
- 		#save message to database
-  		@message.save
-  		redirect_to @message
-    else
-      render 'new'
+    if @message.save
+    redirect_to messages_path
+    else 
+    render 'new'
     end
-	end
+  end
  
-	private
-  	def message_params
+private
+  def message_params
     params.require(:message).permit(:recipient, :image)
-	end
-
+  end
+end
 
