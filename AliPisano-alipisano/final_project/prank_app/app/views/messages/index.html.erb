@@ -1,0 +1,15 @@
+<h1>Listing messages</h1>
+ 
+<table>
+  <tr>
+    <th>Recipient</th>
+    <th>Image</th>
+  </tr>
+ 
+  <% @messages.each do |message| %>
+    <tr>
+      <td><%= message.recipient %></td>
+      <td><%= message.image %></td>
+    </tr>
+  <% end %>
+</table>
