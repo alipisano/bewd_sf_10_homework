@@ -35,7 +35,15 @@ def update
   else
     render 'edit'
   end
-end  
+end 
+
+def destroy
+  @message = Message.find(params[:id])
+  @message.destroy
+ 
+  redirect_to messages_path
+end
+
  
 private
   def message_params
