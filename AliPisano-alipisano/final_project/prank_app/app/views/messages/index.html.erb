@@ -6,7 +6,6 @@
   <div class="table-responsive">
   <!-- hover state on table rows -->
     <table class="table table-hover">
-      <table class="table table-bordered">
       <!-- Start of table -->
       <tr>
         <th>Recipient </th>
@@ -19,13 +18,13 @@
       <td class="col-md-2"> <%= message.recipient %></td>
       <td><%= message.image %></td>
       <td><%= link_to 'Show', message_path(message), class: 'btn btn-default btn-xs' %></td>
-      <td><%= link_to 'Edit', edit_message_path(message), class: 'btn btn-success btn-xs' %></td>
+      <td><%= link_to 'Edit', edit_message_path(message), class: 'btn btn-primary btn-xs' %></td>
       <td><%= link_to 'Destroy', message_path(message),
               method: :delete,
-              data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %>
+              data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-info' %>
         </td>
     </tr>
   <% end %>
 </table>
 
-<%= link_to 'Back', new_message_path, class: 'btn btn-lg btn-warning' %>
+<%= link_to 'Back', new_message_path, class: 'btn btn-md btn-info' %>
